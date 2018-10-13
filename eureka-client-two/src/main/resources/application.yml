@@ -1,0 +1,39 @@
+server:
+  port: 8502
+
+spring:
+  application:
+    name: eureka-client-two
+  zipkin:
+    base-url: http://localhost:8602
+  sleuth:
+    sampler:
+      probability: 1.0
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+# spring boot 2.0 的endpoint变动 -=-https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide
+management:
+  endpoint:
+    hystrix:
+      stream:
+        enabled: true  # 启用hystrix
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream, *  # 添加hystrix.stream路径
+#      base-path: /
+
+feign:
+  hystrix:
+    enabled: true  # 启用feign的hystrix
+
+
+
+configTest:
+  properties:
+    str1: local-str1
+    str2: local-str2

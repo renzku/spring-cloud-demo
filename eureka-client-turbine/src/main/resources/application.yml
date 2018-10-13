@@ -1,0 +1,15 @@
+server:
+  port: 8503
+
+spring:
+  application:
+    name: eureka-client-turbine
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+turbine:
+  app-config: eureka-client-one, eureka-client-two
+  cluster-name-expression: new String("default")

@@ -1,0 +1,18 @@
+server:
+  port: 8602
+
+spring:
+  application:
+    name: eureka-client-sleuth
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+# 启动报错 -- https://github.com/openzipkin/zipkin/issues/2043#issuecomment-385932918
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false

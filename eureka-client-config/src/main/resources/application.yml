@@ -1,0 +1,16 @@
+server:
+  port: 8604
+
+spring:
+  application:
+    name: eureka-client-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/renzku/spring-cloud-demo-config-repo
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

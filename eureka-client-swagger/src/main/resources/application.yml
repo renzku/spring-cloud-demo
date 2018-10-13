@@ -1,0 +1,11 @@
+server:
+  port: 8605
+
+spring:
+  application:
+    name: eureka-client-swagger
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

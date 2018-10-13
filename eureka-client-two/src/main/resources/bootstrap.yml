@@ -1,0 +1,13 @@
+#name: ${spring.application.name} 表示应用名称,在client中通过spring.config.name配置
+#profile: ${spring.profiles.active}（实际上是Environment.getActiveProfiles()
+#label: git分支，默认值master
+#spring:
+#  cloud:
+#    config:
+#      enabled: true
+#      discovery:
+#        enabled: true
+#        service-id: eureka-client-config
+#      name: eureka-client-two
+#      label: master
+#      profile: dev

@@ -1,0 +1,24 @@
+server:
+  port: 8601
+
+spring:
+  application:
+    name: eureka-client-zuul
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+# 动态路由后面研究
+# 引入eureka后不手动配置，会自动为每个服务都创建一个默认路由规则: 访问路径的前缀为serviceId配置的服务名称
+zuul:
+  routes:
+    clientOne:
+      path: /client-one/**
+      serviceId: eureka-client-one
+    clientTwo:
+      path: /client-two/**
+      serviceId: eureka-client-two
+#      url: http://localhost:8502/
+

@@ -1,0 +1,19 @@
+server:
+  port: 8761
+
+
+eureka:
+  instance:
+      hostname: localhost
+      lease-renewal-interval-in-seconds: 5  # 设置心跳的时间间隔（默认是30秒）
+      lease-expiration-duration-in-seconds: 20 # 如果现在超过了20秒的间隔（默认是90秒）则服务无效了
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+    eviction-interval-timer-in-ms: 30000  # eureka清理无效服务的间隔时间
+    enable-self-preservation: false  # 设置为false表示关闭保护模式--某一个微服务不可用了，eureka清理掉
+

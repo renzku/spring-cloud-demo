@@ -1,0 +1,27 @@
+server:
+  port: 8603
+
+spring:
+  application:
+    name: eureka-client-stream
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination:  eureka-client-stream-des
+        output:
+          destination:  eureka-client-stream-des
+        customInput:
+          destination:  eureka-client-stream-cust-des
+        customOutput:
+          destination:  eureka-client-stream-cust-des
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
